@@ -1,6 +1,6 @@
 package com.heuser.learn_spring_framwork.game;
 
-public class MarioGame {
+public class MarioGame implements GameConsole{
 
     public void up() {
         System.out.println("Jump");

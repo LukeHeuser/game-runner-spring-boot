@@ -1,6 +1,6 @@
 package com.heuser.learn_spring_framwork.game;
 
-public class SuperContraGame {
+public class SuperContraGame implements GameConsole{
 
     public void up() {
         System.out.println("Jump and Flip");
