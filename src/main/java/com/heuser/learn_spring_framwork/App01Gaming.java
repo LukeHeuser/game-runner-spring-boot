@@ -3,7 +3,7 @@ package com.heuser.learn_spring_framwork;
 import com.heuser.learn_spring_framwork.game.GameRunner;
 import com.heuser.learn_spring_framwork.game.RideFive;
 
-public class AppGaming {
+public class App01Gaming {
 
     public static void main(String[] args) {
 
