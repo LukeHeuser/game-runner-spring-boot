@@ -4,7 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 // These records will print the to string method when called
-record Person (String name, int age) { };
+record Person (String name, int age, Address address) { };
+// Address record
 record Address (String streetName, String city) { };
 
 @Configuration
@@ -22,7 +23,8 @@ public class HelloWorldConfiguration {
 
     @Bean
     public Person person() {
-        return new Person("Hannah", 20);
+        return new Person("Hannah", 20,
+                new Address("Fist Street", "Grandview"));
     }
 
     @Bean(name = "address2")
@@ -30,9 +32,24 @@ public class HelloWorldConfiguration {
         return new Address("Sandusky St.", "Delaware");
     }
 
-    @Bean
-    public Person person2(int age, String name){
-
+    @Bean(name = "address3")
+    public Address address3() {
+        return new Address("William St.", "Delaware");
     }
+
+    // This is one way to create a spring bean with existing spring beans.
+    // we call the methods in the class and pass the information to the "Person" record to create a new person.
+    @Bean
+    public Person person2MethodCall(){
+        return new Person(name(), age(), address()); //name, age
+    }
+
+    // This is another way to create a new spring bean using existing spring beans.
+    // This way autowires the
+    @Bean
+    public Person person3Parameters(String name, int age, Address address3){
+        return new Person(name, age, address3);
+    }
+
 
 }
