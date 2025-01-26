@@ -45,7 +45,7 @@ public class HelloWorldConfiguration {
     }
 
     // This is another way to create a new spring bean using existing spring beans.
-    // This way autowires the
+    // This way autowires through parameters
     @Bean
     public Person person3Parameters(String name, int age, Address address3){
         return new Person(name, age, address3);
