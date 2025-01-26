@@ -25,10 +25,14 @@ public class HelloWorldConfiguration {
         return new Person("Hannah", 20);
     }
 
-    @Bean
+    @Bean(name = "address2")
     public Address address() {
         return new Address("Sandusky St.", "Delaware");
     }
 
+    @Bean
+    public Person person2(int age, String name){
+
+    }
 
 }
