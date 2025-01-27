@@ -27,16 +27,6 @@ public class HelloWorldConfiguration {
                 new Address("Fist Street", "Grandview"));
     }
 
-    @Bean(name = "address2")
-    public Address address() {
-        return new Address("Sandusky St.", "Delaware");
-    }
-
-    @Bean(name = "address3")
-    public Address address3() {
-        return new Address("William St.", "Delaware");
-    }
-
     // This is one way to create a spring bean with existing spring beans.
     // we call the methods in the class and pass the information to the "Person" record to create a new person.
     @Bean
@@ -51,5 +41,14 @@ public class HelloWorldConfiguration {
         return new Person(name, age, address3);
     }
 
+    @Bean(name = "address2")
+    public Address address() {
+        return new Address("Sandusky St.", "Delaware");
+    }
+
+    @Bean(name = "address3")
+    public Address address3() {
+        return new Address("William St.", "Delaware");
+    }
 
 }
