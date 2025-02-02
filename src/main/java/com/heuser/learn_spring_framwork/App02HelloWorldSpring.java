@@ -2,7 +2,9 @@ package com.heuser.learn_spring_framwork;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class App02HelloWorldSpring {
+import java.util.Arrays;
+
+public class App02HelloWorldSpring extends HelloWorldConfiguration{
 
     public static void main(String[] args) {
 
@@ -15,15 +17,31 @@ public class App02HelloWorldSpring {
         // HelloWorldConfigurationClass - @Configuration
         // name- @Bean
 
+        // You can also retrieve a Bean by using the type of the Bean
+        //System.out.println(context.getBean(Address.class));
+
         // 3: Retrieving Beans managed by Spring
         System.out.println(context.getBean("name"));
         System.out.println(context.getBean("age"));
         System.out.println(context.getBean("person"));
         System.out.println(context.getBean("address2"));
-        // You can also retrieve a Bean by using the type of the Bean
-        // System.out.println(context.getBean(Address.class));
+
         System.out.println(context.getBean("person2MethodCall"));
         System.out.println(context.getBean("person3Parameters"));
+
+        // This will print ALL beans that are managed by the IOC
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+
+
+        // The following is playing with the beans of the GIVEN context: "HelloWorldConfiguration"
+        // We have
+        Person chris = new Person("Chris", 15,
+                new Address ("Bernard St.","Seattle"));
+
+        System.out.println(chris.name() + " is " + chris.age() + " years old and lives at " +
+                chris.address());
+
 
     }
 

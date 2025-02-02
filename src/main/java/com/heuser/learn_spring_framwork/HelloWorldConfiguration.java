@@ -6,7 +6,13 @@ import org.springframework.context.annotation.Configuration;
 // These records will print the to string method when called
 record Person (String name, int age, Address address) { };
 // Address record
-record Address (String streetName, String city) { };
+record Address (String streetName, String city) {
+
+    @Override
+    public String toString() {
+        return streetName + " " + city ;
+    }
+};
 
 @Configuration
 public class HelloWorldConfiguration {
@@ -46,9 +52,16 @@ public class HelloWorldConfiguration {
         return new Address("Sandusky St.", "Delaware");
     }
 
+    @Bean
+    public Address getAddress() {
+        return address();
+    }
+
     @Bean(name = "address3")
     public Address address3() {
         return new Address("William St.", "Delaware");
     }
+
+
 
 }
