@@ -1,7 +1,9 @@
 package com.heuser.learn_spring_framwork;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 // These records will print the to string method when called
 record Person (String name, int age, Address address) { };
@@ -47,17 +49,26 @@ public class HelloWorldConfiguration {
         return new Person(name, age, address3);
     }
 
+    @Bean
+    @Primary
+    public Person person4Parameters(String name, int age, Address address){
+        return new Person(name, age, address);
+    }
+
+    @Bean
+    public Person person5Qualifier(String name, int age, @Qualifier("address3Qualifier") Address adress){
+        return new Person(name, age, adress);
+    }
+
     @Bean(name = "address2")
+    @Primary
     public Address address() {
         return new Address("Sandusky St.", "Delaware");
     }
 
-    @Bean
-    public Address getAddress() {
-        return address();
-    }
 
     @Bean(name = "address3")
+    @Qualifier("address3Qualifier")
     public Address address3() {
         return new Address("William St.", "Delaware");
     }

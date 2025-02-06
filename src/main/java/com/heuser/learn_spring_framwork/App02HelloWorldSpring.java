@@ -43,7 +43,10 @@ public class App02HelloWorldSpring extends HelloWorldConfiguration{
         System.out.println(chris.name() + " is " + chris.age() + " years old and lives at " +
                 chris.address());
 
+        System.out.println(context.getBean(Person.class));
+        System.out.println(context.getBean(Address.class));
 
+        System.out.println(context.getBean("person5Qualifier"));
     }
 
 }
