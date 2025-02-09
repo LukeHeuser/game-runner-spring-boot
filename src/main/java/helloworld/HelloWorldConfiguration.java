@@ -1,4 +1,4 @@
-package com.heuser.learn_spring_framwork;
+package helloworld;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -26,7 +26,7 @@ public class HelloWorldConfiguration {
 
     @Bean
     public int age() {
-        return 25;
+        return 26;
     }
 
     @Bean
