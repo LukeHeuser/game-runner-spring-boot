@@ -13,6 +13,7 @@ public class App03GamingSpringBeans {
 
         context.getBean(GameConsole.class).up();
 
+
         context.getBean(GameRunner.class).run();
 
     }
