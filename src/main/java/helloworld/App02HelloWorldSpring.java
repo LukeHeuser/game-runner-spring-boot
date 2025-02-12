@@ -14,6 +14,7 @@ public class App02HelloWorldSpring extends HelloWorldConfiguration{
                     new AnnotationConfigApplicationContext
                             (HelloWorldConfiguration.class)) {
 
+
             // 2: Configure what we want Spring to manage - @Configuration
             // HelloWorldConfigurationClass - @Configuration
             // name- @Bean
