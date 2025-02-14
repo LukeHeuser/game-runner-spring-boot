@@ -1,5 +1,8 @@
 package com.heuser.learn_spring_framwork.game;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class RideFive implements GameConsole{
 
     public void up() {
